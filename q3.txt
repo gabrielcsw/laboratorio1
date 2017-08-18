@@ -1,0 +1,38 @@
+1	#include <iostream>
+2
+3	int funcX (int a, int b){ //Não há alterações em arg1 e arg2, pois os retornos das funçoes funcx e funcy não vão para a main. No funcZ, só se altera a variável resultado.
+4		++a;
+5		b++;
+6		int result = a + b;
+7		return result;
+8	}
+9
+10	int funcY (int* a, int b){
+11		int *y = new int;
+12		(*y) = (*a);
+13		(*y) *= 5;
+14		int result = (*y) + b;
+15
+16		return result;
+17	}
+18
+19	void funcZ (int a, int b, int* result){
+20		a++;
+21		(*result) += a + 2*b;
+22	}
+23
+24	int main(int argc, char* argv[]){
+25		int arg1 = 11;
+26		int arg2 = 23;
+27
+28		funcX(arg1,arg2); //a funcao retorna o resultado, mas ele
+29
+30		funcY(&arg1,arg2);
+31
+32		int resultado = 0;
+33
+34		funcZ(arg1,arg2,&resultado);
+35
+36		return 0;
+37	}
+
